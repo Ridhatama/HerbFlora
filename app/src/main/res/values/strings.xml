@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">HerbFlora</string>
+    <string name="onBoarding1">Welcome to HerbFlora!</string>
+    <string name="onBoarding2">Scan Tumbuhan dengan Mudah</string>
+    <string name="onBoarding3">Baca Artikel Tanaman Herbal</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="onboarding1text">Pelajari lebih lanjut tentang manfaat, penggunaan, dan efek samping tanaman herbal yang Anda minati.</string>
+    <string name="onboarding2text">Gunakan fitur pemindaian kami untuk mengidentifikasi tanaman herbal.</string>
+    <string name="onboarding3text">Pelajari lebih lanjut tentang manfaat dan penggunaan tanaman herbal favorit Anda.</string>
+    <string name="skip">Skip</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <!-- Strings used for fragments for navigation -->
+
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="register_text_1">Don\'t have an account?</string>
+    <string name="sign_up">Sign up</string>
+    <string name="or_sign_in_with_google">or Sign in with Google</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="default_web_client_id">\"244644416931-qmgt3orgo9kt7a519d1hvm0pgrh32f1e.apps.googleusercontent.com\"</string>
+    <string name="register_text_2">Hi, Welcome to HerbFlora</string>
+    <string name="login_text_1">Already have an account?</string>
+    <string name="sign_in">Sign in</string>
+    <string name="name">Name</string>
+    <string name="register">Register</string>
+    <string name="email_error">Email is not allowed to be empty</string>
+    <string name="name_error">Name is not allowed to be empty</string>
+    <string name="empty_pass_error">Password not allowed to be empty</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="camera">Camera</string>
+    <string name="article">Article</string>
+    <string name="add_post">Add Post</string>
+    <string name="enter_article_name">Enter article name</string>
+    <string name="description">Description</string>
+    <string name="enter_article_description">Enter article description</string>
+    <string name="benefits">Benefits</string>
+    <string name="enter_benefits">Enter benefits</string>
+    <string name="usage">Usage</string>
+    <string name="post">POST</string>
+    <string name="description_is_not_allowed_to_be_empty">Description is not allowed to be empty</string>
+    <string name="usage_field_cannot_be_left_empty">Usage field cannot be left empty</string>
+    <string name="benefits_field_cannot_be_left_empty">Benefits field cannot be left empty</string>
+    <string name="please_insert_the_image">Please insert the image</string>
+    <string name="keywords">Keywords</string>
+    <string name="keywords_field_cannot_be_left_empty">Keywords field cannot be left empty</string>
+    <string name="scan">Scan</string>
+    <string name="select_image_source">Select image source</string>
+    <string name="result">Result</string>
+    <string name="go_to_article">Go to Article</string>
+    <string name="select_image">Select image</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="home_bringing">Explore Herbal Plants</string>
+    <string name="logout">Logout</string>
+    <string name="plant_care">Plant Care</string>
+    <string name="plant_care_field_cannot_be_left_empty">Plant Care field cannot be left empty</string>
+    <string name="check_internet_connection">Check  Internet Connection</string>
+    <string name="firebase_connection_error">A network error (such as timeout, interrupted connection or unreachable host) has occurred.</string>
+    <string name="incorrect_password">Incorrect password. Please try again.</string>
+    <string name="incorrect_password_firebase">The supplied auth credential is incorrect, malformed or has expired.</string>
+</resources>

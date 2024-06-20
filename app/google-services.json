@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "244644416931",
+    "project_id": "herbflora-a62fc",
+    "storage_bucket": "herbflora-a62fc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:244644416931:android:bedcaee9fd565e3e969e16",
+        "android_client_info": {
+          "package_name": "com.iftah.herbflora"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "244644416931-qmgt3orgo9kt7a519d1hvm0pgrh32f1e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFyuqprKGLO34YnMM-tiK8salIoVjXGIc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "244644416931-qmgt3orgo9kt7a519d1hvm0pgrh32f1e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

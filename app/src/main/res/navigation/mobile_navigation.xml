@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.iftah.herbflora.home.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_camera"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="true"
+            app:destination="@id/navigation_camera" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_list_article"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="true"
+            app:destination="@id/navigation_list_article" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_list_article"
+        android:name="com.iftah.herbflora.home.ui.articleList.ArticleListFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_article" />
+    <fragment
+        android:id="@+id/navigation_camera"
+        android:name="com.iftah.herbflora.home.ui.camera.CameraFragment"
+        android:label="fragment_camera"
+        tools:layout="@layout/fragment_camera" />
+</navigation>

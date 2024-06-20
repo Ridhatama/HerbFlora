@@ -1,0 +1,136 @@
+@startuml
+
+class LoginActivity {
+    - binding: ActivityLoginBinding
+    - googleSignInClient: GoogleSignInClient
+    - auth: FirebaseAuth
+    - db: FirebaseFirestore
+    - loginViewModel: LoginViewModel
+    - resultLauncher: ActivityResultLauncher<Intent>
+
+    + onCreate(savedInstanceState: Bundle?)
+    - loginWithEmail(email: String, password: String)
+    - loginWithGoogleAccount()
+    - updateUI(currentUser: FirebaseUser?)
+    - addTextChangeListener(editText: EditText, callback: () -> Unit)
+    - validateInput(): Boolean
+    - showLoading(state: Boolean)
+}
+
+class LoginViewModel {
+    - _message: MutableLiveData<String>
+    - _signInResult: MutableLiveData<Intent>
+    - _updateUI: MutableLiveData<FirebaseUser>
+    - _isLoading: MutableLiveData<Boolean>
+    + message: LiveData<String> = _message
+    + signInResult: LiveData<Intent> = _signInResult
+    + updateUI: LiveData<FirebaseUser> = _updateUI
+    + isLoading: LiveData<Boolean> = _isLoading
+
+    + signInWithGoogle(googleSignInClient: GoogleSignInClient)
+    + firebaseAuthWithGoogle(idToken: String)
+    + login(email: String, password: String)
+}
+
+
+class CameraFragment {
+    - _binding: FragmentCameraBinding?
+    - currentPhotoPath: String
+    - getUri: Uri?
+    - cameraViewModel: CameraViewModel
+    + REQUIRED_PERMISSIONS: Array<String>
+    + REQUEST_CODE_PERMISSIONS: Int
+
+    + onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray)
+    + allPermissionsGranted(): Boolean
+    + onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View
+    + onViewCreated(view: View, savedInstanceState: Bundle?)
+    + clasify()
+    + showOptionsDialog()
+    + showOptionDialogResult()
+    + pickImageFromGallery()
+    + pickImageFromCamera()
+    + onDestroyView()
+}
+
+class CameraViewModel {
+    - _predictedLabel: MutableLiveData<String>
+    - _predictedPercentage: MutableLiveData<String>
+    - tflite: Interpreter
+    - inputBuffer: ByteBuffer
+    - outputBuffer: ByteBuffer
+    - IMAGE_WIDTH: Int
+    - IMAGE_HEIGHT: Int
+    - IMAGE_CHANNELS: Int
+    - IMAGE_SIZE: Int
+    - MODEL_FILE_NAME: String
+    - LABELS_FILE_NAME: String
+    + predictedLabel: LiveData<String> = _predictedLabel
+    + predictedPercentage: LiveData<String> = _predictedPercentage
+    - predictResult(predictLabel: String, confidencePercentage: String)
+    + CameraViewModel(application: Application)
+    + predictImage(bitmap: Bitmap?)
+    + loadModelFile(): MappedByteBuffer
+    + loadLabels(): List<String>
+}
+
+class HomeFragment {
+    - _binding: FragmentHomeBinding?
+    + onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View
+    + onViewCreated(view: View, savedInstanceState: Bundle?)
+    + onCreateMenu(menu: Menu, menuInflater: MenuInflater)
+    + onMenuItemSelected(menuItem: MenuItem): Boolean
+    + getData(viewModel: HomeViewModel)
+    + onDestroyView()
+}
+
+class HomeViewModel{
+    - article: LiveData<PagingData<Article>>
+}
+
+class ArticleListFragment{
+    - _binding: FragmentArticleBinding?
+    + onCreateView(inflater: LayoutInflater,container: ViewGroup?, savedInstanceState: Bundle?): View
+    + getData(viewModel: ArticleViewModel)
+    + onDestroyView()
+}
+
+class ArticleListViewModel{
+    - article: LiveData<PagingData<Article>>
+    - repository: Repository
+}
+
+class ArticleViewModelFactory{
+    - repository: Repository
+}
+
+class ArticleActivity{
+    - binding: ActivityArticleBinding
+    - articleViewModel: ArticleViewModel
+    + onCreate(savedInstanceState: Bundle?)
+    + onSupportNavigateUp(): Boolean
+}
+
+class ArticleViewModel{
+    - _article = MutableLiveData<Article>
+    + article: LiveData<Article> = _article
+
+    + getDataArticle(nameArticle: String)
+}
+
+ArticleListViewModel .right.> ArticleViewModelFactory : uses
+ArticleActivity -down-> ArticleViewModel : uses
+ArticleListFragment -down-> ArticleListViewModel : uses
+ArticleListFragment -down-> ArticleActivity : intent
+LoginActivity -up-> LoginViewModel : uses
+LoginActivity -down-> HomeFragment : intent
+HomeFragment -down-> CameraFragment : navigate
+CameraFragment -down-> CameraViewModel : Uses
+HomeFragment -down-> ArticleListFragment : navigate
+CameraFragment --> ArticleListFragment : intent
+HomeFragment -right-> HomeViewModel : uses
+CameraFragment --> HomeFragment : navigate
+ArticleListFragment --> HomeFragment : navigate
+
+
+@enduml
